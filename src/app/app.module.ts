@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchrComponent } from './searchr/searchr.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { SearchrComponent } from './searchr/searchr.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    GooglePlaceModule
 
 
   ],
