@@ -1,10 +1,10 @@
 <form>
     <mat-card>
         <mat-form-field>
-            <input  ngx-google-places-autocomplete id="adresses" placeholder="your adresse please" matInput required> 
+            <input  ngx-google-places-autocomplete id="adresse" placeholder="your adresse please" matInput required> 
         </mat-form-field>
     </mat-card>
-        <button class="brd-rd2 red-bg" type="submit">Search</button>
+        <button class="brd-rd2 red-bg" type="submit" (click)="doGeocoding()">Search</button>
 </form>
 <div class="col-md-6">
     <div id="mapp-canvas" class="agm-map" >
