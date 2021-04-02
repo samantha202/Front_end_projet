@@ -1,1 +1,56 @@
-
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5" >
+                <div class="container-fluid press" >
+                    <ngb-carousel *ngIf="images">
+                        <ng-template ngbSlide>
+                          <div class="wrapper">
+                            <img [src]="images[0]" alt="Random first slide">
+                          </div>
+                          <div class="carousel-caption">
+                            <h3>First Slide</h3>
+                            <p> Angular 10 Carousel Example </p>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                          <div class="wrapper">
+                            <img [src]="images[1]" alt="Random second slide">
+                          </div>
+                          <div class="carousel-caption">
+                            <h3>Second Slide</h3>
+                            <p> Check out Techiediaries</p>
+                          </div>
+                        </ng-template>
+                        <ng-template ngbSlide>
+                          <div class="wrapper">
+                            <img [src]="images[2]"  alt="Random third slide">
+                          </div>
+                          <div class="carousel-caption">
+                            <h3>Third Slide</h3>
+                            <p>for full tutorial...</p>
+                          </div>
+                        </ng-template>
+                      </ngb-carousel>
+            </div>
+            </div>
+            <div class="col-sm-7 p-rgt-sec">
+                <div>
+                <span class="p-tag">Comunauté Efrei</span>
+                <h1 class="mt-4">Efrei Inside</h1>
+                <p class="p-dess mt-3 mb-4">my par</p>
+                <a href="#"class="p-readmore">Read More <img src="" width="18" class="ml-2"/></a>
+                </div>
+                <div>
+                    <h1>rejoindre une communauté</h1>
+                    <form class="form-inline" autocomplete="off">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="adr" placeholder="votre adresse postale" autocomplete="off">
+                            <button class="btn btn-warning">JOIN</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

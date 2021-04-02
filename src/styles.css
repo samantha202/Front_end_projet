@@ -1,4 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~bootstrap/dist/css/bootstrap.css";
+body 
+{
+  margin:0;
+  padding:0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 18px;
+}
+a{
+    text-decoration: none;
+}
+p{
+  margin: 0;
+}
+.p-wrapper
+{
+    position:relative;
+}
+ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4 ,h5, h6{
+    font-weight: 700;
+}
+.p-readmore{
+    color:#000;
+    font-size: 20px
+}
+.p-readmore img{
+    transition: all .5s;
+    transform: translateX(0)
+}
+.p-readmore:hover img{
+    transform: translateX(5px)
+}
+.p-wrapper::before
+{
+    content: '';
+    background: #53678e!important;
+    height: 100vh;
+    width:25vw;
+    position:absolute;
+    z-index: -1;
+}
+.p-flex{
+    display: flex;
+}
+.p-flex-align-center{
+    align-items: center;
+}
+.p-flex-justify-sb{
+    justify-content: space-between;
+}
+a, a:hover{
+    text-decoration: none;
+    color:#000;
+}
+.p-cursor{
+    cursor: pointer;
+}
