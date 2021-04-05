@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GooglePlaceModule, GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { MapsService } from 'src/app/services/maps.service';
 import {SessionStorageService} from 'ngx-webstorage';
+import Typed from 'typed.js';
 
 //variable por stocker les différentes valeurs du Geocoding
 var geocoder: any;
@@ -25,6 +26,15 @@ export class SearchrComponent implements OnInit {
     private session: SessionStorageService) { }
 
   ngOnInit(): void {
+    const options={
+      strings: ['Entrez','Cherchez','confirmez'],
+      typeSpeed: 100,
+      backSpeed: 100,
+      showCursor: false,
+      cursorColor: "red",
+      loop: true
+   };
+    var typed = new Typed('.typing', options);
     this.initMap(); //j'initialise ma carte au préalable sinon il ne sera pas visible
   }
   //cette fonction permet d'initialiser ma carte 

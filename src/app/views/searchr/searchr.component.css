@@ -32,7 +32,12 @@ button {
 .agm-map #infowindow-content {
  display: inline;
 }
-
+.typing{
+    color: #3f51b5!important;
+}
+.typed-cursor{
+    color:#3f51b5!important;
+}
    
   
   

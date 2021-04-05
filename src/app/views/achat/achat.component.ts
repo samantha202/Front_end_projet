@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StripeService,ElementsOptions,Elements,Element as StripeElement, } from "ngx-stripe";
 import {HttpClient } from '@angular/common/http';
 import {SessionStorageService} from 'ngx-webstorage';
+import { DonwnloadPDFService } from 'src/app/services/donwnload-pdf.service';
 @Component({
   selector: 'app-achat',
   templateUrl: './achat.component.html',
@@ -24,7 +25,8 @@ export class AchatComponent implements OnInit {
   };
   constructor( private stripeService: StripeService,
     private http: HttpClient,
-    private session: SessionStorageService) {
+    private session: SessionStorageService,
+    private dml:DonwnloadPDFService) {
   }
 
   ngOnInit(): void {
@@ -88,6 +90,7 @@ export class AchatComponent implements OnInit {
         (res)=>{
         console.log("la reponse du serveur est la suivante",res);
         console.log('Paiement effecuté');
+        this.dml.downloadPDF(this.prix,this.quantite,this.montant,this.telephone);
         },
         (err)=>{
           console.log('erreur est ',err)
