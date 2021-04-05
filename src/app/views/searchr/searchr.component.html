@@ -1,11 +1,25 @@
-<form>
-    <mat-card>
-        <mat-form-field>
-            <input  ngx-google-places-autocomplete id="adresse" placeholder="your adresse please" matInput required> 
-        </mat-form-field>
-    </mat-card>
-        <button class="brd-rd2 red-bg" type="submit" (click)="doGeocoding()">Search</button>
-</form>
-<div class="col-md-6">
-    <div id="mapp-canvas" class="agm-map" >
-</div>
+<section style="padding-top: 50px;">
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9">
+        <div class="row">
+            <div class="col-sm-4">
+            <form>
+                <mat-card>
+                  <mat-form-field>
+                  <input  ngx-google-places-autocomplete id="adresse" placeholder="your adresse please" matInput required> 
+                  </mat-form-field>
+                </mat-card>
+                <button mat-raised-button color="primary" type="submit" (click)="doGeocoding()">Search</button>
+              </form>
+            </div>
+            <div class="col-sm-8">
+              <div id="mapp-canvas" class="agm-map" >
+            </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>

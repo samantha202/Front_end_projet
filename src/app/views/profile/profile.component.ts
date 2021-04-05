@@ -15,19 +15,21 @@ export class ProfileComponent implements OnInit {
   prenom ='';
   email = '';
   errors = [''];
-  constructor(private user: AuthentificationService) { }
+  data: null|undefined|Utilisateur;
+  constructor(private user: AuthentificationService,private router: Router) { }
 
   ngOnInit(): void {
   }
-  AddUser()
+  async addUser()
   {
     const users = new Utilisateur(this.nom,this.prenom,this.email,this.password);
-    this.user.addUtilisateurs(users)
-    .pipe()
-    .subscribe(
-      data => {
-        console.log("resultat requete "+data);
-      }
-    );
+    this.data = await this.user.addUtilisateurs(users).toPromise();
+    try{
+      console.log("resultat requete "+this.data);
+      this.router.navigate(['/login']);
+    }catch(err)
+    {
+      throw err;
+    }
   }
 }

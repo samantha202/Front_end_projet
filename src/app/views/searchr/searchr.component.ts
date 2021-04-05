@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GooglePlaceModule, GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { MapsService } from 'src/app/services/maps.service';
+import {SessionStorageService} from 'ngx-webstorage';
 
 //variable por stocker les différentes valeurs du Geocoding
 var geocoder: any;
@@ -20,7 +21,8 @@ export class SearchrComponent implements OnInit {
   adresse = '';
   google: any ;
   map: any;
-  constructor(private maps:MapsService) { }
+  constructor(private maps:MapsService,
+    private session: SessionStorageService) { }
 
   ngOnInit(): void {
     this.initMap(); //j'initialise ma carte au préalable sinon il ne sera pas visible
@@ -43,6 +45,7 @@ export class SearchrComponent implements OnInit {
   {
     this.adresse = (<HTMLInputElement>document.getElementById('adresse')).value;
     adresse = this.adresse;
+    this.session.store("adresse",adresse);
     geocoder = this.maps.geocoding(this.adresse);
     this.SearchAdress();
   }

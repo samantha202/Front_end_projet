@@ -9,5 +9,5 @@
         </mat-form-field>
     </mat-card>
     <mat-card class="error-box" *ngIf="errors.length">{{ errors.join(' ') }}</mat-card>
-    <button mat-raised-button color="primary" (click)=" CheckUser()" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button color="primary" (click)=" checkUser()" [disabled]="form.invalid">Login</button>
 </form>

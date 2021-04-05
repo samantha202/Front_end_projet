@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
-import {AuthentificationService} from 'src/app/services/authentification.service'
-import { first } from 'rxjs/operators';
+import {AuthentificationService} from 'src/app/services/authentification.service';
+import {SessionStorageService} from 'ngx-webstorage';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,44 +11,36 @@ import { first } from 'rxjs/operators';
 export class LoginComponent {
   email = '';
   password = '';
-  errors = [''];
+  errors: string[] = [];
   u : Utilisateur[] | undefined;
-  submitted: any;
-  AdresseClientI : any;
-  AdresseClientB : any;
-
-  constructor(
+  users: undefined|null|Utilisateur;
+   constructor(
     private router : Router,
-    private user :AuthentificationService) 
-    {
-    }
-
+    private user :AuthentificationService,
+    private session: SessionStorageService) 
+  {
+  }
   ngOnInit() {
     this
   }
-  
-  CheckUser()
+  async checkUser()
   {
-    
-  this.user.getUserPL(this.email,this.password)
-  .pipe(first()).subscribe(
-    user => {
-      if(user.password === "")
-      {
-        this.errors = ['your login or your password it is not correct'];
-      }else
-      { 
-        let result : any;
-        result = JSON.stringify(user);
-        //resut as Utilisateur;
-        console.log("my result  "+result);
-        this.router.navigate(['/search']);
-      }
-    },
-    error =>
-    { 
-      this.errors = ['your login or your password it is not correct'];
-    } 
-    );
-  }
+    this.users = await this.user.getUserPL(this.email,this.password).toPromise();
+    try{
+      this.errors = [];
+    if(this.users[0].password === this.password && this.users[0].email === this.email)
+    {
+      this.session.store("nom",this.users[0].nom);
+      this.session.store("prenom",this.users[0].prenom);
+      this.session.store("email",this.users[0].email);
+      console.log("my result  ",this.users[0].email);
+      this.router.navigate(['/search']);
+    }
+    }catch(err)
+    {
+      this.errors = ['Votre login ou votre password est incorrect'];
+      throw err;
+      this.errors = [];
+   }
+ }
 }

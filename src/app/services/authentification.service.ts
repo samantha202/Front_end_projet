@@ -12,7 +12,7 @@ const httpOptions = {
 export class AuthentificationService {
 
   private utilisateursUrl = 'http://localhost:8080/api/utilisateurs';  
-  private userUrl = "http://localhost:8080/api/utilisateurs/usernamepassword_utilisateurs";
+  private userUrl = "http://localhost:8080/api/utilisateurs/email_paswword";
   
   constructor( private http: HttpClient) 
   {}
@@ -25,8 +25,7 @@ export class AuthentificationService {
     return this.http.post<Utilisateur>(this.utilisateursUrl, utilisateur, httpOptions);
   }
   getUserPL(login: String, password: String): Observable<Utilisateur> {
-    const url = `${this.userUrl}/${login}/${password}`;
-    console.log("dans le service "+url);
-    return this.http.get<Utilisateur>(url);
+    const cdl = new Utilisateur("","",login,password);
+    return this.http.post<Utilisateur>(this.userUrl,cdl,httpOptions);
   }
 }

@@ -16,11 +16,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchrComponent } from './views/searchr/searchr.component';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
-import { MapComponent } from './views/map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AchatComponent } from './views/achat/achat.component';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import {NgxStripeModule } from "ngx-stripe";
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 
 @NgModule({
@@ -31,7 +32,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ProfileComponent,
     SearchrComponent,
-    MapComponent,
     AchatComponent
   ],
   imports: [
@@ -46,7 +46,9 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     HttpClientModule,
     GooglePlaceModule,
+    NgxWebstorageModule.forRoot(),
     ReactiveFormsModule,
+    NgxStripeModule.forRoot('pk_test_51IbmXgDHFVIVSFomcH3KsE2Oo1ofJFAjowTVbektCku0K91PjnTOfarXkC82nBMXLYGYUYZtiAursVeUajLlTMfY009K7T2PgM'),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD2cPvVFGpXFhzNgEYoqrrGgZ-MW8ZDWQo'
      }),
@@ -58,7 +60,6 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 export class AppModule {
   images = [700, 800, 807].map((n) => `https://picsum.photos/id/${n}/900/500`);
   constructor(config: NgbCarouselConfig) {
-    // 
     config.interval = 2000;
     config.keyboard = true;
     config.pauseOnHover = true;

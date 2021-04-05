@@ -29,7 +29,7 @@ header ul li a {
 }
 header ul li a:hover:after,header ul li a.is-active::after{
     content: '';
-    background:  #53678e!important;
+    background:  #3f51b5!important;;
     height: 7px;
     position: absolute;
     left: 1px;

@@ -1,35 +1,77 @@
- <div class="container">
-   <div class="row align-items-center">
-     <div class="col">
-<div class="shadow rounded" id="im">
-  <img src="" width="18" class="ml-2"/>
-</div>
-</div>
-<div class="col">
-  <form>
-    <mat-card>
-        <mat-form-field>
-           <input type="text" name="nom" placeholder="nom"  required required>
-          </mat-form-field>
-          <mat-form-field>
-            <input type="text" name="prenom" placeholder="Prenom"  required required>
-          </mat-form-field>
-        <mat-form-field>
-        <input type="text" name="email" placeholder="Email"  required required>
-        </mat-form-field>
-        <mat-form-field>
-          <input type="text" name="adresse" placeholder="adresse"  required required>
-        </mat-form-field>
-        <mat-form-field>
-          <input type="text" name="telephone" placeholder="telephone"  required required>
-      </mat-form-field>
-      <mat-form-field>
-        <input type="text" name="card" placeholder="card">
-    </mat-form-field>
-    </mat-card>
-    <button mat-raised-button color="primary">valider</button>
-  </form>
+<section>
+  <div class="col-lg-12">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="box ">
+              <form>
+                <div class="row">
+                  <div class="col left">
+                      <h2>Faites votre choix</h2>
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="tshirt" name="shirt" class="custom-control-input" (click)="choixShirt(1)">
+                        <label class="custom-control-label" for="tshirt">Sweatshirt</label>
+                      </div>
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="pol" name="shirt" class="custom-control-input">
+                        <label class="custom-control-label" for="pol" (click)="choixPolo(2)">Polo</label>
+                      </div>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col left">
+                      <div class="form-group">
+                        <label>Quantité</label>
+                        <input type="number" class="form-control" [(ngModel)]="quantite" (change)=" quantiteOnChange()" [ngModelOptions]="{standalone: true}">
+                      </div>
+                  </div>
+                  <div class="col right">
+                    <label id="labels" >{{montant}} euros</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col left">
+                      <img *ngIf="typeVetement === 1" src="assets/one.jpg" width="350" height="260">
+                      <img *ngIf="typeVetement === 2" src="assets/two.jpg" width="350" height="260">
+                      </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <div class="box">
+            <form>
+              <mat-card>
+                <mat-form-field>
+                  <input type="text" name="nom" placeholder="nom" [(ngModel)]="nom" matInput required required [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="text" name="prenom" placeholder="Prenom" [(ngModel)]="prenom" matInput required required [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="text" name="email" placeholder="Email" [(ngModel)]="email" matInput required required [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="text" name="adresse" placeholder="adresse" [(ngModel)]="adresse" matInput required required [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+                <mat-form-field>
+                  <input type="text" name="telephone" placeholder="telephone" [(ngModel)]="telephone" matInput required required [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+              </mat-card>
+              <div class="form-group">
+                <label>Numero de carte</label>
+              <div id="card-element" class="field"></div>
+              </div>
+            <button color="primary" (click)="buy()">valider</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
- </div>
+</section>  
+  
   

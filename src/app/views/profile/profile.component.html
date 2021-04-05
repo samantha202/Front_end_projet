@@ -16,6 +16,6 @@
         </mat-form-field>
     </mat-card>
     <mat-card class="error-box" *ngIf="errors.length">{{ errors.join(' ') }}</mat-card>
-    <button mat-raised-button color="primary" (click)="AddUser()" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button color="primary" (click)="addUser()" [disabled]="form.invalid">Submit</button>
 </form>
 

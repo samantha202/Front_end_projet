@@ -1,10 +1,4 @@
-<!-- <mat-toolbar color="primary">
-    <a routerLink="/">Home</a>
-    <span class="toolbar-spacer"></span>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/profile">Profile</a>
-  </mat-toolbar> -->
-  <header>
+<header>
      <div class="container">
        <div class="row">
          <div class="col-sm-12 p-flex p-flex-align-center p-flex-justify-sb">
@@ -17,17 +11,20 @@
            </ul>
            <ul>
               <li>
-                <a class="font-weight-bold" [routerLink]="['']" [routerLinkActive]="'is-active'">Home</a>
+                <a class="font-weight-bold" [routerLink]="['home']" [routerLinkActive]="'is-active'">Home</a>
               </li>
               <li>
-                 <a class="font-weight-bold" routerLink="/login">Login</a>
+                 <a class="font-weight-bold" routerLink="/login" [routerLink]="['login']" [routerLinkActive]="'is-active'">Login</a>
               </li>
               <li>
-                 <a class="font-weight-bold" routerLink="/profile">Create</a>
+                 <a class="font-weight-bold" routerLink="/profile" [routerLink]="['profile']" [routerLinkActive]="'is-active'">Create</a>
               </li>
                <li>
-                 <a class="font-weight-bold">About us</a>
+                 <a class="font-weight-bold" [routerLink]="['search']" [routerLinkActive]="'is-active'">Search</a>
                </li>
+               <li>
+                <a class="font-weight-bold" [routerLink]="['achat']" [routerLinkActive]="'is-active'">Achat</a>
+              </li>
            </ul>
          </div>
        </div>

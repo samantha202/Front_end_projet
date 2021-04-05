@@ -7,7 +7,7 @@ import {SearchrComponent} from './views/searchr/searchr.component';
 import {AchatComponent} from './views/achat/achat.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'search',  component:SearchrComponent},
