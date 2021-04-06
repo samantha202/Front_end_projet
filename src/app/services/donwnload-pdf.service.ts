@@ -43,7 +43,7 @@ export class DonwnloadPDFService {
     doc.text(this.session.retrieve("email"),130,60);
     doc.setFontSize(11);
     doc.text(this.session.retrieve("adresse"),130,70);
-    doc.text(this.session.retrieve("telephone"),130,80);
+    //doc.text(this.session.retrieve("telephone"),130,80);
     autoTable(doc, {
       startY: 110,
       head: head,
@@ -53,5 +53,6 @@ export class DonwnloadPDFService {
       },
     })
     doc.save('facture.pdf')
+    this.router.navigate(['/home']);
   }
 }

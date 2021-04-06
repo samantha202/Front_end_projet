@@ -58,3 +58,7 @@ form{
 {
  justify-content:center;
 }
+.sect
+{
+	background-image: url('/assets/background.jpg');
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/models/utilisateur';
 import {AuthentificationService} from 'src/app/services/authentification.service';
+import {MeService} from "src/app/services/me.service";
 import {SessionStorageService} from 'ngx-webstorage';
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
    constructor(
     private router : Router,
     private user :AuthentificationService,
-    private session: SessionStorageService) 
+    private session: SessionStorageService,
+    private me:MeService) 
   {
   }
   ngOnInit() {
@@ -26,6 +28,7 @@ export class LoginComponent {
   async checkUser()
   {
     this.users = await this.user.getUserPL(this.email,this.password).toPromise();
+    this.me.resove(this.users);
     try{
       this.errors = [];
     if(this.users[0].password === this.password && this.users[0].email === this.email)
@@ -42,5 +45,6 @@ export class LoginComponent {
       throw err;
       this.errors = [];
    }
+   return this.users;
  }
 }

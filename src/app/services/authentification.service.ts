@@ -13,6 +13,7 @@ export class AuthentificationService {
 
   private utilisateursUrl = 'http://localhost:8080/api/utilisateurs';  
   private userUrl = "http://localhost:8080/api/utilisateurs/email_paswword";
+  private me : null|undefined|Utilisateur;
   
   constructor( private http: HttpClient) 
   {}

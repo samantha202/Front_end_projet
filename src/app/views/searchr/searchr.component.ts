@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GooglePlaceModule, GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { MapsService } from 'src/app/services/maps.service';
 import {SessionStorageService} from 'ngx-webstorage';
+import { Router } from '@angular/router';
 import Typed from 'typed.js';
 
 //variable por stocker les différentes valeurs du Geocoding
@@ -23,7 +24,8 @@ export class SearchrComponent implements OnInit {
   google: any ;
   map: any;
   constructor(private maps:MapsService,
-    private session: SessionStorageService) { }
+    private session: SessionStorageService,
+    private router:Router) { }
 
   ngOnInit(): void {
     const options={
@@ -90,5 +92,8 @@ export class SearchrComponent implements OnInit {
         infowindow.open(map, marker);
       })
     });
+  }
+  confirm(){
+    this.router.navigate(['/achat']);
   }
 }

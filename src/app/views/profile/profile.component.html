@@ -5,7 +5,7 @@
           </mat-form-field>
       
           <mat-form-field>
-              <input type="password" name="prenom" placeholder="Prenom" [(ngModel)]="prenom" matInput required required [ngModelOptions]="{standalone: true}">
+              <input type="text" name="prenom" placeholder="Prenom" [(ngModel)]="prenom" matInput required required [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         <mat-form-field>
           <input type="text" name="email" placeholder="Email" [(ngModel)]="email" matInput required required [ngModelOptions]="{standalone: true}">
@@ -15,7 +15,6 @@
             <input type="password" name="password" placeholder="Password" [(ngModel)]="password" matInput required required [ngModelOptions]="{standalone: true}">
         </mat-form-field>
     </mat-card>
-    <mat-card class="error-box" *ngIf="errors.length">{{ errors.join(' ') }}</mat-card>
-    <button mat-raised-button color="primary" (click)="addUser()" [disabled]="form.invalid">Submit</button>
+    <button mat-raised-button color="primary" (click)="addUser()" [disabled]="form.invalid">Valider</button>
 </form>
 
