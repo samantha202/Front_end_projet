@@ -18,11 +18,17 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Features
 
 create an account
+
 to log in
+
 gecoding
+
 load a google maps map
+
 join an Efrei paris community
+
 buy the efrei Paris T-shirt
+
 download the invoice
 
 ## Contact
